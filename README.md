@@ -13,7 +13,7 @@ It simply log into a spotify account, select a playlist and pass to code to your
 
 ## Setup
 
-1. Create an [spotify app](https://developer.spotify.com/my-applications/#!/applications/create) them get the `client id` and the `secret id`.
+1. Create an [spotify app](https://developer.spotify.com/my-applications/#!/applications/create) them get the `client id` and the `secret id`. You also need to put a callback for you app, in development if fine to use `http://localhost:3000/auth/spotify/callback`.
 
 2. Edit the `.env.example` at the root directory with the key provided by Spotify.
 

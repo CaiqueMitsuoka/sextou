@@ -1,0 +1,5 @@
+<%= form_tag("/playlists/add", method: "post") do %>
+  <%= label_tag(:track, "song uri:") %>
+  <%= text_field_tag(:track) %>
+  <%= submit_tag("Add") %>
+<% end %>

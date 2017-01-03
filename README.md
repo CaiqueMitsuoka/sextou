@@ -19,4 +19,10 @@ It simply log into a spotify account, select a playlist and pass to code to your
 
 3. Rename the `.env.example` to `.env`
 
-4. Run: `bundle exec rails s`
+4. Run: `bundle install`
+
+5. Creates the database `Rake db:create`
+
+6. Run migrations `Rake db:migrate`
+
+5. Run: `bundle exec rails s`

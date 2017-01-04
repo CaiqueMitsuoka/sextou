@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get '/playlists', to: 'spotify#playlists'
   get '/spotify/home', to: 'spotify#index'
   get '/playlists/select', to: 'spotify#select'
-  get '/playlists/add', to: 'spotify#add_song_form'
-  post '/playlists/add', to: 'spotify#add_song'
+  get '/playlists/select_song', to: 'spotify#select_song'
+  get '/playlists/add_uri', to: 'spotify#add_song_form_uri'
+  get '/playlists/add_name', to: 'spotify#add_song_form_name'
+  post '/playlists/add_uri', to: 'spotify#add_song_uri'
+  post '/playlists/add_name', to: 'spotify#add_song_name'
+
 end

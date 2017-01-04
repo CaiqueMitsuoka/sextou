@@ -16,8 +16,19 @@ class SpotifyController < ApplicationController
 
   def select
     session[:current_playlist] = params.permit(:playlist)[:playlist]
-    # byebug
     redirect_to '/spotify/home'
+  end
+
+  def add_track_playlist track_id
+      spotify_user = RSpotify::User.new(session[:user_hash])
+      playlist = RSpotify::Playlist.find(spotify_user.id , session[:current_playlist])
+      track = RSpotify::Track.find(track_id)
+      playlist.add_tracks!([track])
+  end
+
+  def select_song
+      add_track_playlist(params.require(:track))
+      redirect_to '/spotify/home'
   end
 
   def index
@@ -27,16 +38,22 @@ class SpotifyController < ApplicationController
     end
   end
 
-  def add_song_form
+  def add_song_form_uri
   end
 
-  def add_song
-    spotify_user = RSpotify::User.new(session[:user_hash])
-    playlist = RSpotify::Playlist.find(spotify_user.id , session[:current_playlist])
-    track = RSpotify::Track.find(params.permit(:track)[:track])
-    if track
-      playlist.add_tracks!([track])
-    end
-    redirect_to '/spotify/home'
+  def add_song_uri
+      add_track_playlist(params.require(:track))
+      redirect_to '/spotify/home'
   end
+
+  def add_song_form_name
+  end
+
+  def index_songs
+  end
+
+  def add_song_name
+    spotify_user = RSpotify::User.new(session[:user_hash])
+    @tracks = RSpotify::Track.search(params.permit(:track)[:track])
+end
 end

@@ -1,0 +1,52 @@
+$red: #AA4139;
+$green: #448F30;
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Marck Script', cursive;
+  color: #fff;
+  font-size: 6rem;
+  letter-spacing: .15rem;
+  text-shadow: 10px 10px 30px $green,
+               10px 10px 1px rgba($green, .5),
+               10px 10px 1px rgba($red, .5);
+  margin: 15vh auto;
+}
+
+body {
+  padding: 5vh 5vw;
+  margin: 0;
+  position: relative;
+  color: #FFF;
+  background: #111;
+  min-height: 100vh;
+  text-align: center;
+
+  &:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    z-index: -1;
+    background: -webkit-linear-gradient(to left, #00C9FF , #92FE9D);
+    background: linear-gradient(to left, #00C9FF , #92FE9D);
+    opacity: 0.1;
+  }
+}
+
+.search-bar {
+    width: 100%;
+
+    input {
+      padding: 1rem;
+    }
+}

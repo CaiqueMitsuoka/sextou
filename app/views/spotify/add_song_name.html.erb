@@ -1,6 +1,7 @@
 <% if @tracks.any? %>
     <% @tracks.each do |track| %>
         <h2><%= track.name %></h2>
+        <h3><%= track.album.name %></h3>
         <%= link_to 'select', "/playlists/select_song?track=#{track.id}" %>
         <br/>
 <% end %>

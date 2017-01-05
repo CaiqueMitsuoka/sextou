@@ -3,6 +3,7 @@
       <% @tracks.each do |track| %>
       <li>
         <h2><%= track.name %></h2>
+        <h3><%= track.album.name %></h3>
         <%= link_to 'select', "/playlists/select_song?track=#{track.id}" %>
       </li>
     </ul>

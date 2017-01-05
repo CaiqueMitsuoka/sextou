@@ -52,7 +52,6 @@ class SpotifyController < ApplicationController
   def add_song_name
     spotify_user = RSpotify::User.new(session[:user_hash])
     @tracks = RSpotify::Track.search(params.require(:track))
-    render json: @tracks
   end
 
   def search_album

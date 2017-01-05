@@ -96,3 +96,14 @@ ul {
     }
   }
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: .5rem;
+  font-size: 1rem;
+  letter-spacing: .1rem;
+  background: darken($green, 30%);
+}

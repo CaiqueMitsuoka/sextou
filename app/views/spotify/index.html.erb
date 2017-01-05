@@ -1,11 +1,14 @@
 <h1>Sextou</h1>
-<%= link_to 'playlists', '/playlists' %>
+<%= link_to 'select playlist', '/playlists' %>
 <% if @playlist %>
   <%= @playlist.name %>
 <% end %>
 
 <%= form_tag("/playlists/add_name", method: "post", class: "search-bar") do %>
-  <%= label_tag(:track, "song name:") %>
+  <%= label_tag(:track, "search song to add in your playlist:") %>
   <%= text_field_tag(:track) %>
   <%= submit_tag("Search") %>
 <% end %>
+<footer>
+  <p>made in 2hours specially for meetapão</p>
+</footer>

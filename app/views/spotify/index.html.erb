@@ -1,11 +1,23 @@
-<h1><%= @spotify_user.display_name %></h1>
-<%= link_to 'playlists', '/playlists' %>
-<% if @playlist %>
-  <%= @playlist.name %>
-<% end %>
+<h1>Sextou</h1>
+<p class="playlist-select">
+  <%= link_to 'playlists', '/playlists' %>
+</p>
 
-<br/>
-<%= link_to 'add a song by name', '/playlists/add_name' %>
+<div class="search-container">
+  <%= form_tag("/playlists/add_name", method: "post", class: "search-bar") do %>
+  <%= text_field_tag(:track, nil , class: "search-bar") %>
+  <%= submit_tag(nil,class: 'button')%>
+  <button class="button"></button>
+  <% end %>
 
-<br/>
-<%= link_to 'add a song by uri', '/playlists/add_uri' %>
+</div>
+
+<p class="playlist-label">
+  <% if @playlist %>
+      <%= @playlist.name %>
+  <% end %>
+</p>
+
+<!-- <footer>
+  <p>made in 2hours specially for meetapão</p>
+</footer> -->

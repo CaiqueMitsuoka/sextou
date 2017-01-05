@@ -1,11 +1,11 @@
-<h1><%= @spotify_user.display_name %></h1>
+<h1>Sextou</h1>
 <%= link_to 'playlists', '/playlists' %>
 <% if @playlist %>
   <%= @playlist.name %>
 <% end %>
 
-<br/>
-<%= link_to 'add a song by name', '/playlists/add_name' %>
-
-<br/>
-<%= link_to 'add a song by uri', '/playlists/add_uri' %>
+<%= form_tag("/playlists/add_name", method: "post", class: "search-bar") do %>
+  <%= label_tag(:track, "song name:") %>
+  <%= text_field_tag(:track) %>
+  <%= submit_tag("Search") %>
+<% end %>

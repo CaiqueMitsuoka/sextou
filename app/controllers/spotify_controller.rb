@@ -46,14 +46,17 @@ class SpotifyController < ApplicationController
       redirect_to '/spotify/home'
   end
 
-  def add_song_form_name
-  end
-
   def index_songs
   end
 
   def add_song_name
     spotify_user = RSpotify::User.new(session[:user_hash])
-    @tracks = RSpotify::Track.search(params.permit(:track)[:track])
-end
+    @tracks = RSpotify::Track.search(params.require(:track))
+    render json: @tracks
+  end
+
+  def search_album
+    spotify_user = RSpotify::User.new(session[:user_hash])
+    @albums = RSpotify::Albums.search(params.require(:album))
+  end
 end

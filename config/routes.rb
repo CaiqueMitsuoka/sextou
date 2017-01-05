@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   post '/playlists/add_uri', to: 'spotify#add_song_uri'
   post '/playlists/add_name', to: 'spotify#add_song_name'
 
+
+  post '/albums', to: 'spotify#search_album'
 end

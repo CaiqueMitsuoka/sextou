@@ -9,9 +9,17 @@ p {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
 h1 {
-  font-family: 'Marck Script', cursive;
   color: #fff;
+  font-family: 'Marck Script', cursive;
   font-size: 6rem;
   letter-spacing: .15rem;
   text-shadow: 10px 10px 30px $green,
@@ -43,12 +51,41 @@ body {
   }
 }
 
-.search-bar {
-    width: 100%;
+.playlist-label {
+  font-family: 'Marck Script', cursive;
+  margin-top: 80px;
+  font-size: 42px;
+  animation-name: neon;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  text-shadow: 0 0 1px darken($green, 10%);
+}
 
-    input {
-      padding: 1rem;
-    }
+@keyframes neon {
+  from {
+    color: #fff;
+    transform: rotate(-3deg);
+  }
+
+  to {
+    color: $green;
+    text-shadow: 0 .75px 3px lighten($green, 10%);
+    transform: rotate(3deg);
+  }
+}
+
+.playlist-select {
+  font-family: 'Marck Script', cursive;
+  transition: all .2s ease-in-out;
+  margin-bottom: 50px;
+  font-size: 24px;
+
+
+  &:hover {
+    transform: scaleY(1.2);
+  }
 }
 
 ul {

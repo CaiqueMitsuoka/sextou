@@ -1,9 +1,12 @@
 <% if @tracks.any? %>
-    <% @tracks.each do |track| %>
+    <ul>
+      <% @tracks.each do |track| %>
+      <li>
         <h2><%= track.name %></h2>
         <%= link_to 'select', "/playlists/select_song?track=#{track.id}" %>
-        <br/>
+      </li>
+    </ul>
 <% end %>
 <% else %>
-    <h2>There are no songs with this name.</h2>
+    <h2>There are no songs with this name. :-(</h2>
 <% end %>

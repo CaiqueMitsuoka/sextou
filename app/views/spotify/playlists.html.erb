@@ -1,10 +1,9 @@
 <h1>Playlists</h1>
-<% @playlists.each do |playlist| %>
-
-  <h2><%= playlist.name %></h2>
-  <p><%= playlist.description %></p>
-  <%= link_to 'select', "/playlists/select?playlist=#{playlist.id}" %>
-  <br/>
-
-
-<% end %>
+<ul>
+  <% @playlists.each do |playlist| %>
+  <li>
+    <h2><%= playlist.name %></h2>
+    <%= link_to 'select playlist', "/playlists/select?playlist=#{playlist.id}" %>
+  </li>
+  <% end %>
+</ul>

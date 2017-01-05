@@ -50,3 +50,49 @@ body {
       padding: 1rem;
     }
 }
+
+ul {
+  li {
+    display: flex;
+    flex-flow: row wrap;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    border-left: 4px solid lighten($green, 20%);
+    transition: border .2s ease;
+    padding-left: 1rem;
+
+    &:hover {
+      border-left: 10px solid lighten($green, 30%);
+
+      h2 {
+        color: lighten($green, 30%);
+      }
+    }
+  }
+
+  h2,
+  a {
+      margin: auto 0;
+  }
+
+  h2 {
+    color: lighten($green, 20%);
+    text-align: left;
+    cursor: default;
+  }
+
+  a {
+    display: block;
+    padding: 1rem;
+    color: #00C9FF;
+    border: 1px solid #00C9FF;
+    margin-left: 2rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      background: rgba(#00C9FF, .25);
+    }
+  }
+}

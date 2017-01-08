@@ -4,12 +4,11 @@
 </p>
 
 <div class="search-container">
-  <%= form_tag("/playlists/add_name", method: "post", class: "search-bar") do %>
+  <%= form_tag("/tracks/search", method: "get", class: "search-bar") do %>
   <%= text_field_tag(:track, nil , class: "search-bar") %>
   <%= submit_tag(nil,class: 'button')%>
   <button class="button"></button>
   <% end %>
-
 </div>
 
 <p class="playlist-label">

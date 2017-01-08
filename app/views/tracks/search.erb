@@ -4,7 +4,7 @@
       <% @tracks.each do |track| %>
       <li>
         <h2><%= track.name %> (<%= track.artists[0].name %>)</h2>
-        <%= link_to 'add to playlist', "/playlists/select_song?track=#{track.id}" %>
+        <%= link_to 'add to playlist', "/playlists/select_song?track=#{track.id}", { method: :post } %>
       </li>
       <% end %>
     </ul>

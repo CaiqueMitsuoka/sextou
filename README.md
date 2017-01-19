@@ -1,19 +1,19 @@
 # Sextou
 
 
-Sextou is a top app that let your playlist be guided by the people who is listening to it
+Sextou is a shop (it's a merge between top and show) app that lets your playlist be guided by the people who are listening to it
 
 
-Don't be that guy who put only song that you would like to hear.
+Don't be that guy who puts only songs that he would like to hear.
 
 Sextou will help you and your friends listen to music together.
 
-It simply log into a spotify account, select a playlist and pass to code to your friends. They will add songs that they want to hear with you.
+It simply logs into a spotify account, selects a playlist and turns it into a link to your friends. They will add songs that they want to hear with you.
 
 
 ## Setup
 
-1. Create an [spotify app](https://developer.spotify.com/my-applications/#!/applications/create) them get the `client id` and the `secret id`. You also need to put a callback for you app, in development if fine to use `http://localhost:3000/auth/spotify/callback`.
+1. Create an [spotify app](https://developer.spotify.com/my-applications/#!/applications/create) then get the `client id` and the `secret id`. You also need to put a callback for your app, in development it's fine to use `http://localhost:3000/auth/spotify/callback`.
 
 2. Edit the `.env.example` at the root directory with the key provided by Spotify.
 
@@ -21,7 +21,7 @@ It simply log into a spotify account, select a playlist and pass to code to your
 
 4. Run: `bundle install`
 
-5. Creates the database `Rake db:create`
+5. Create the database `Rake db:create`
 
 6. Run migrations `Rake db:migrate`
 

@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20170101153159) do
   create_table "users", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "user_raw"
-    t.boolean  "online",     null: false
     t.string   "session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

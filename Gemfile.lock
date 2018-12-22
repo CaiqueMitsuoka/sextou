@@ -137,7 +137,6 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    redis (3.3.1)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -200,7 +199,6 @@ DEPENDENCIES
   pg
   puma (~> 3.0)
   rails (~> 5.0.1)
-  redis (~> 3.0)
   rspotify
   sass-rails (~> 5.0)
   spring
@@ -211,4 +209,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.13.6
+   1.17.1

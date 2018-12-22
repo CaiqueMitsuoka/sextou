@@ -144,3 +144,9 @@ footer {
   letter-spacing: .1rem;
   background: darken($green, 30%);
 }
+
+.disabled {
+  cursor: not-allowed;
+  color: #333;
+  border-color: #333;
+}

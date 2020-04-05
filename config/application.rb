@@ -6,6 +6,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+if ! Rails.env.production?
+  Dotenv::Railtie.load
+end
+
+RSpotify::authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_SECRET_ID"])
+
 module Sextou
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

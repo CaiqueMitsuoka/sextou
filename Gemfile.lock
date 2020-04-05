@@ -58,6 +58,7 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    bcrypt (3.1.13)
     better_errors (2.6.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -91,6 +92,8 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.12.2)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -241,12 +244,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
   bootsnap
   byebug
   coffee-rails (~> 4.2)
   dotenv-rails
+  friendly_id (~> 5.2.4)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

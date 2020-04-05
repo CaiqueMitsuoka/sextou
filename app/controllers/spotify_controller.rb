@@ -5,7 +5,7 @@ class SpotifyController < ApplicationController
 
   def spotify
     spotify_user = create_or_update
-    session[:current_user] = spotify_user
+    session[:current_user_id] = spotify_user.id
     redirect_to '/spotify/home'
   end
 
@@ -20,9 +20,9 @@ class SpotifyController < ApplicationController
   end
 
   def create_or_update
-    return User.update(user_raw: @spotify_user.to_hash) if user_exists?
+    return User.update(user_raw: @spotify_user.to_hash.to_json) if user_exists?
 
-    User.create(name: @spotify_user.display_name, user_raw: @spotify_user.to_hash, session_id: @spotify_user.id)
+    User.create(name: @spotify_user.display_name, user_raw: @spotify_user.to_hash.to_json, session_id: @spotify_user.id)
   end
 
   def set_spotify_user

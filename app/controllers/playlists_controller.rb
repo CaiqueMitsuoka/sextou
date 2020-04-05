@@ -15,8 +15,9 @@ class PlaylistsController < ApplicationController
   end
 
   private
+
   def add_track(track_id)
-      track = RSpotify::Track.find(track_id)
-      current_playlist.add_tracks!([track])
+    track = RSpotify::Track.find(track_id)
+    current_playlist.add_tracks!([track])
   end
 end

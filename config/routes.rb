@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :parties
   resources :users
   get '/', to: 'spotify#home'
   get '/auth/spotify/callback', to: 'spotify#spotify'

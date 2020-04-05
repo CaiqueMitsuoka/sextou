@@ -1,12 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  private
+  helper_method :current_user, :logged_in?
+
   def current_user
-    @user ||= RSpotify::User.new(session[:user_hash])
+    @current_user ||= session[:current_user]
   end
 
-  def current_playlist
-    @playlist ||= RSpotify::Playlist.find(current_user.id , session[:current_playlist])
+  def logged_in?
+    current_user != nil
   end
 end

@@ -1,17 +1,31 @@
 class SpotifyController < ApplicationController
-  def home
-  end
+  before_action :set_spotify_user, only: :spotify
+
+  def home; end
 
   def spotify
-    @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
-    session[:user_hash] = @spotify_user.to_hash
+    spotify_user = create_or_update
+    session[:current_user] = spotify_user
     redirect_to '/spotify/home'
   end
 
   def index
-    @spotify_user = current_user
-    if session.key?("current_playlist")
-      @playlist = current_playlist
-    end
+    @playlist = current_playlist if session.key?('current_playlist')
+  end
+
+  private
+
+  def user_exists?
+    User.exists?(session_id: @spotify_user.id)
+  end
+
+  def create_or_update
+    return User.update(user_raw: @spotify_user.to_hash) if user_exists?
+
+    User.create(name: @spotify_user.display_name, user_raw: @spotify_user.to_hash, session_id: @spotify_user.id)
+  end
+
+  def set_spotify_user
+    @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
   end
 end

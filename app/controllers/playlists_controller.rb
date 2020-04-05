@@ -5,6 +5,7 @@ class PlaylistsController < ApplicationController
 
   def select
     session[:current_playlist] = params.require(:playlist)
+
     redirect_to '/spotify/home'
   end
 

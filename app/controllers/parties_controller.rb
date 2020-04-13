@@ -25,7 +25,8 @@ class PartiesController < ApplicationController
   # POST /parties.json
   def create
     @party = Party.new(party_params)
-    Playlist::Create.new(@party.name, current_user).execute
+    playlist = Playlist::Create.new(@party.name, current_user).execute
+    @party.playlist_id = playlist.id
 
     respond_to do |format|
       if @party.save

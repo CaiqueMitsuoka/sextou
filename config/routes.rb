@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
-  resources :parties
+
   resources :users
   get '/', to: 'spotify#home'
   get '/auth/spotify/callback', to: 'spotify#spotify'
   get '/spotify/home', to: 'spotify#index'
 
-  # Playlists
-  get '/playlists', to: 'playlists#index'
-  get '/playlists/select', to: 'playlists#select'
-  post '/playlists/select_song', to: 'playlists#add'
-
   # Tracks
-  get '/tracks/search', to: 'tracks#search'
+  resources :parties
+  namespace :party do
+    get '/:slug/tracks', to: 'tracks#index', as: :tracks
+    post '/:slug/tracks/', to: 'tracks#create'
+  end
 
   # Albums
   get '/albums', to: 'albums#search'

@@ -5,7 +5,7 @@ class SpotifyController < ApplicationController
 
   def spotify
     spotify_user = create_or_update
-    session[:current_user_id] = spotify_user.id
+    session[:current_user_id] = spotify_user.is_a?(Array) ? spotify_user.last.id : spotify_user.id
     redirect_to '/spotify/home'
   end
 

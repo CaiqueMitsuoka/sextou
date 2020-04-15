@@ -4,12 +4,8 @@ class Party < ApplicationRecord
 
   friendly_id :name, use: :slugged
 
-  def spotify_user
-    RSpotify::User.new(JSON.parse(user.user_raw))
-  end
-
   def playlist
-    RSpotify::Playlist.find(spotify_user.id, playlist_id)
+    RSpotify::Playlist.find(user.spotify_account.id, playlist_id)
   end
 
   def add_tracks(track_id)

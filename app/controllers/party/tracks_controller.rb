@@ -21,8 +21,7 @@ class Party::TracksController < ApplicationController
 
   def search_track_name(track_name)
     if track_name
-      track = RSpotify::Track.search(track_name)
-      track
+      RSpotify::Track.search(track_name)
     else
       []
     end

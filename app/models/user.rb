@@ -5,11 +5,11 @@ class User < ApplicationRecord
 
   attribute :user_raw, :encrypted, type: :json, compress: true
 
-  def current_raw
-    RSpotify::User.new(JSON.parse(user_raw))
+  def create_playlist(name)
+    spotify_account.create_playlist!(name)
   end
 
-  def create_playlist(name)
-    current_raw.create_playlist!(name)
+  def spotify_account
+    RSpotify::User.new(user_raw)
   end
 end

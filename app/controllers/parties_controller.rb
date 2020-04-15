@@ -1,4 +1,5 @@
 class PartiesController < ApplicationController
+  before_action :authenticate!
 
   # GET /parties
   def index

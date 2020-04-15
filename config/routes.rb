@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/spotify/home', to: 'spotify#index'
 
   # Tracks
-  resources :parties
+  resources :parties, only: [:index, :new, :create]
   namespace :party do
     get '/:slug/tracks', to: 'tracks#index', as: :tracks
     post '/:slug/tracks/', to: 'tracks#create'

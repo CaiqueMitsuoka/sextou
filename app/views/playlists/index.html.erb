@@ -1,9 +1,0 @@
-<h1>Playlists</h1>
-<ul>
-  <% @playlists.each do |playlist| %>
-  <li>
-    <h2><%= playlist.name %></h2>
-    <%= link_to 'select playlist', "/playlists/select?playlist=#{playlist.id}" %>
-  </li>
-  <% end %>
-</ul>

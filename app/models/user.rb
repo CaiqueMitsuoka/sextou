@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   has_many :parties
 
+  attribute :user_raw, :encrypted, type: :json, compress: true
+
   def current_raw
     RSpotify::User.new(JSON.parse(user_raw))
   end

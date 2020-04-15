@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   attribute :user_raw, :encrypted, type: :json, compress: true
 
+  validates :name, :user_raw, :session_id, presence: true
+
   def create_playlist(name)
     spotify_account.create_playlist!(name)
   end

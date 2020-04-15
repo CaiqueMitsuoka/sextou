@@ -1,24 +1,22 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Parties</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<% if @parties.any? %>
+  <%= link_to 'Criar Party', new_party_path, class: 'playlist-label' %>
 
-  <tbody>
+  <br/>
+
+  <ul>
     <% @parties.each do |party| %>
-      <tr>
-        <td><%= party.name %></td>
-      </tr>
+      <li>
+        <h2><%= party.name %></h2>
+
+        <a onClick="copyToClipboard('<%= party_tracks_url(slug: party.slug) %>')">Copiar link</a>
+
+        <a href="<%= party_tracks_path(slug: party.slug) %>">Vamooo 🎉</a>
+      </li>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Party', new_party_path %>
+  </ul>
+<% else %>
+  <%= link_to 'Crie sua primeira pa-pa-pa-party 🎉', new_party_path, class: 'playlist-label' %>
+<% end %>

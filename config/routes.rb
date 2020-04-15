@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get '/', to: 'spotify#home'
   get '/auth/spotify/callback', to: 'spotify#spotify'
-  get '/spotify/home', to: 'spotify#index'
 
   # Tracks
   resources :parties, only: [:index, :new, :create]

@@ -6,9 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Slug</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -16,11 +14,6 @@
     <% @parties.each do |party| %>
       <tr>
         <td><%= party.name %></td>
-        <td><%= party.slug %></td>
-        <td><%= party.user_id %></td>
-        <td><%= link_to 'Show', party %></td>
-        <td><%= link_to 'Edit', edit_party_path(party) %></td>
-        <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

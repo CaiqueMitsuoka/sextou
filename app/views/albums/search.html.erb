@@ -1,9 +1,0 @@
-<% if @albums.any? %>
-    <% @albums.each do |album| %>
-        <h2><%= album.name %></h2>
-        <%= link_to 'select', "/albums?album=#{album.id}" %>
-        <br/>
-<% end %>
-<% else %>
-    <h2>There are no songs with this name.</h2>
-<% end %>

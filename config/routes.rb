@@ -9,7 +9,4 @@ Rails.application.routes.draw do
     get '/:slug/tracks', to: 'tracks#index', as: :tracks
     post '/:slug/tracks/', to: 'tracks#create'
   end
-
-  # Albums
-  get '/albums', to: 'albums#search'
 end

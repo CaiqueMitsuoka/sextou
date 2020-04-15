@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  resources :users
   get '/', to: 'spotify#home'
   get '/auth/spotify/callback', to: 'spotify#spotify'
   get '/spotify/home', to: 'spotify#index'

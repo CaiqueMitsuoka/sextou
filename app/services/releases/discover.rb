@@ -38,7 +38,7 @@ module Releases
       offset = 0
 
       (1..50).detect do |page_number|
-        page_albums = artist.albums(limit: 50, offset: offset, include_groups: 'album,single')
+        page_albums = artist.albums(limit: 50, offset: offset)
 
         offset += 50
 

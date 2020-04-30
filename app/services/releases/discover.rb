@@ -11,7 +11,7 @@ module Releases
       playlist = ::Playlist::Create.new("🔥Sextou lançamentos🎉", user).execute
 
       artists.each {|artist| all_releases << albums(artist)}
-      new_releases = all_releases.flatten.select {|album| is_new?(album)}
+      new_releases = all_releases.flatten.select {|album| is_new?(album)}.uniq!(&:id).uniq!(&:name)
 
       new_releases.each do |album|
         puts "Adicionando #{album.name} de #{album.release_date}"
@@ -38,7 +38,7 @@ module Releases
       offset = 0
 
       (1..50).detect do |page_number|
-        page_albums = artist.albums(limit: 50, offset: offset)
+        page_albums = artist.albums(limit: 50, offset: offset, include_groups: 'album,single')
 
         offset += 50
 

@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   has_many :parties
+  has_one :friday_release
 
   attribute :user_raw, :encrypted, type: :json, compress: true
 

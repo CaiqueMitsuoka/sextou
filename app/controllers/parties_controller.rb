@@ -3,7 +3,6 @@ class PartiesController < ApplicationController
 
   # GET /parties
   def index
-    binding.pry
     @parties = current_user.parties
   end
 

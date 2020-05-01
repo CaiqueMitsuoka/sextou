@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     get '/:slug/tracks', to: 'tracks#index', as: :tracks
     post '/:slug/tracks/', to: 'tracks#create'
   end
+
+  resources :friday_releases, only: [:new, :create, :delete]
 end

@@ -1,0 +1,17 @@
+<%= form_with(model: friday_release, local: true) do |form| %>
+  <% if friday_release.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(friday_release.errors.count, "error") %> prohibited this friday_release from being saved:</h2>
+
+      <ul>
+        <% friday_release.errors.full_messages.each do |message| %>
+          <li style="color: #000000"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit "Criar Playlist", class: 'friday-releases__submit' %>
+  </div>
+<% end %>

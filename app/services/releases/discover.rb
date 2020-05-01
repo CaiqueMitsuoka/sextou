@@ -8,13 +8,12 @@ module Releases
 
     def execute
       all_releases = []
-      playlist = ::Playlist::Create.new("🔥Sextou lançamentos🎉", user).execute
 
       artists.each {|artist| all_releases << albums(artist)}
       new_releases = all_releases.flatten.select {|album| is_new?(album)}.uniq!(&:id).uniq!(&:name)
 
       new_releases.each do |album|
-        playlist.add_tracks!(album.tracks)
+        user.playlist.add_tracks!(album.tracks)
       end
     end
 

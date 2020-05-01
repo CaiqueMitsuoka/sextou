@@ -14,7 +14,6 @@ module Releases
       new_releases = all_releases.flatten.select {|album| is_new?(album)}.uniq!(&:id).uniq!(&:name)
 
       new_releases.each do |album|
-        puts "Adicionando #{album.name} de #{album.release_date}"
         playlist.add_tracks!(album.tracks)
       end
     end

@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     post '/:slug/tracks/', to: 'tracks#create'
   end
 
-  resources :friday_releases, only: [:new, :create, :delete]
+  resources :friday_releases, only: [:new, :create, :destroy]
 end

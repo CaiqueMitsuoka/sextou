@@ -2,7 +2,7 @@
 <h1>Parties</h1>
 
 <% if @parties.any? %>
-  <%= link_to 'Criar Party', new_party_path, class: 'playlist-label' %>
+  <%= link_to 'Nova Party', new_party_path, class: 'playlist-label' %>
 
   <br/>
 
@@ -19,4 +19,10 @@
   </ul>
 <% else %>
   <%= link_to 'Crie sua primeira pa-pa-pa-party 🎉', new_party_path, class: 'playlist-label' %>
+<% end %>
+
+<% if current_user.friday_release %>
+  <%= link_to 'Parar de atualizar playlist de lançamentos', "/friday_releases/#{current_user.friday_release.id}",  method: :delete, data: { confirm: 'Are you sure?' }, class: 'playlist-label' %>
+<% else %>
+  <%= link_to 'Descubra os lançamentos do artista que você segue', new_friday_release_path, class: 'playlist-label' %>
 <% end %>

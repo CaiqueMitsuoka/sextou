@@ -18,7 +18,7 @@ class FridayReleasesController < ApplicationController
   def destroy
     @friday_release.destroy
 
-    redirect_to parties_url, notice: 'Friday release was successfully destroyed.'
+    redirect_to parties_url, notice: 'Friday release was successfully stopped.'
   end
 
   private

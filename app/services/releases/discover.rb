@@ -7,13 +7,15 @@ module Releases
     end
 
     def execute
+      return unless user.friday_release
+
       all_releases = []
 
       artists.each {|artist| all_releases << albums(artist)}
-      new_releases = all_releases.flatten.select {|album| is_new?(album)}.uniq!(&:id).uniq!(&:name)
+      new_releases = all_releases.flatten.select {|album| is_new?(album)}.uniq(&:id).uniq(&:name)
 
       new_releases.each do |album|
-        user.playlist.add_tracks!(album.tracks)
+        user.friday_release.playlist.add_tracks!(album.tracks)
       end
     end
 

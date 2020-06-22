@@ -1,0 +1,33 @@
+.friday-releases {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__description {
+    max-width: 800px;
+    padding: 30px;
+    margin-bottom: 50px;
+    font-family: "Marck Script", cursive;
+    font-size: 1.5rem;
+    font-kerning: none;
+    line-height: 1.2;
+  }
+
+  &__submit {
+    background: none;
+    font-size: 13px;
+    line-height: 18px;
+    text-transform: uppercase;
+    display: block;
+    padding: 1rem;
+    color: #00c9ff;
+    border: 1px solid #00c9ff;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      background: rgba(#00c9ff, 0.25);
+    }
+  }
+}

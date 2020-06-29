@@ -14,8 +14,14 @@ module Releases
       artists.each {|artist| all_releases << albums(artist)}
       new_releases = all_releases.flatten.select {|album| is_new?(album)}.uniq(&:id).uniq(&:name)
 
+      tracks = []
+
       new_releases.each do |album|
-        user.friday_release.playlist.add_tracks!(album.tracks)
+        tracks << album.tracks
+      end
+
+      spotify_request do
+        user.friday_release.playlist.add_tracks!(tracks)
       end
     end
 
@@ -38,7 +44,9 @@ module Releases
       offset = 0
 
       (1..50).detect do |page_number|
-        page_albums = artist.albums(limit: 50, offset: offset, include_groups: 'album,single')
+        page_albums = spotify_request do
+          artist.albums(limit: 50, offset: offset, include_groups: 'album,single')
+        end
 
         offset += 50
 
@@ -59,7 +67,9 @@ module Releases
       last_artist_id = nil
 
       (1..100).detect do |page_number|
-        page_artists = user.spotify_account.following(type: 'artist', limit: 50, after: last_artist_id)
+        page_artists = spotify_request do
+          user.spotify_account.following(type: 'artist', limit: 50, after: last_artist_id)
+        end
 
         artists.concat(page_artists)
         last_artist_id = page_artists.last.id
@@ -68,6 +78,19 @@ module Releases
       end
 
       artists
+    end
+
+    def spotify_request
+      begin
+        yield
+      rescue RestClient::TooManyRequests => e
+        wait_time = e.http_headers['Retry-After']
+        wait_time ||= 10
+
+        sleep wait_time
+
+        spotify_request(&block)
+      end
     end
   end
 end

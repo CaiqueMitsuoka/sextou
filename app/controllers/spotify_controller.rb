@@ -1,11 +1,15 @@
 class SpotifyController < ApplicationController
   before_action :set_spotify_user, only: :spotify
 
+  attr_accessor :spotify_user
+
   def home; end
 
   def spotify
-    spotify_user = create_or_update
-    session[:current_user_id] = spotify_user.is_a?(Array) ? spotify_user.last.id : spotify_user.id
+    user = create_or_update
+
+    session[:user_id] = user.id
+
     redirect_to parties_path
   end
 
@@ -20,9 +24,14 @@ class SpotifyController < ApplicationController
   end
 
   def create_or_update
-    return User.update(user_raw: @spotify_user.to_hash) if user_exists?
+    if user_exists?
+      @current_user = User.find_by(session_id: @spotify_user.id)
+      current_user.update!(user_raw: @spotify_user.to_hash)
 
-    User.create(name: @spotify_user.display_name, user_raw: @spotify_user.to_hash, session_id: @spotify_user.id)
+      current_user
+    else
+      User.create(name: @spotify_user.display_name, user_raw: @spotify_user.to_hash, session_id: @spotify_user.id)
+    end
   end
 
   def set_spotify_user

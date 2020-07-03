@@ -14,6 +14,11 @@ class FridayRelease < ApplicationRecord
   end
 
   def playlist
-    @playlist ||= RSpotify::Playlist.find_by_id(playlist_id)
+    @playlist ||= find_playlist
+  end
+
+  def find_playlist
+    playlist = RSpotify::Playlist.find_by_id(playlist_id)
+    playlist.user = user.spotify_account
   end
 end

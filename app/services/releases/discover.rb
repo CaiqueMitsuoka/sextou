@@ -8,6 +8,7 @@ module Releases
 
     def execute
       return unless user.friday_release
+      user.spotify_account
 
       all_releases = []
 
@@ -43,7 +44,7 @@ module Releases
       albums = []
       offset = 0
 
-      (1..50).detect do |page_number|
+      (1..100).detect do |page_number|
         page_albums = spotify_request do
           artist.albums(limit: 50, offset: offset, include_groups: 'album,single')
         end
@@ -80,7 +81,7 @@ module Releases
       artists
     end
 
-    def spotify_request
+    def spotify_request(&block)
       begin
         yield
       rescue RestClient::TooManyRequests => e

@@ -41,6 +41,7 @@ gem 'omniauth-oauth2', '~> 1.5.0'
 gem 'rspotify', '~> 2.8.0'
 gem 'bootsnap', require: false
 gem 'symmetric-encryption'
+gem 'sidekiq'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

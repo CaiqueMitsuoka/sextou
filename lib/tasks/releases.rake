@@ -15,7 +15,7 @@ namespace :releases do
 
   def update_discover_playlist
     User.all.each do |user|
-      Releases::Discover.new(user).execute
+      UpdateFridayPlaylistJob.perform_later(user.id)
     end
   end
 

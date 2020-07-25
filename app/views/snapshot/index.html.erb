@@ -1,0 +1,22 @@
+<h1>Snapshot</h1>
+<p class="playlist-select">
+  <%= link_to 'home', '/' %>
+</p>
+
+<br/>
+<% if @playlists.any? %>
+    <ul>
+      <% @playlists.each do |playlist| %>
+      <li>
+        <h2><%= playlist.name %></h2>
+        <%= link_to 'selecionar', snapshot_index_path(playlist_id: playlist.id), method: :post %>
+      </li>
+      <% end %>
+    </ul>
+
+    <% if @playlists.count == @per_page %>
+        <%= link_to 'mais +', snapshot_index_path(page: @next_page) %>
+    <% end %>
+<% else %>
+    <h2>You don't follow any playlist 🤔</h2>
+<% end %>

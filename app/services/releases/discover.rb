@@ -22,7 +22,7 @@ module Releases
       end
 
       spotify_request do
-        user.friday_release.playlist.add_tracks!(tracks.flatten)
+        user.friday_release.playlist.replace_tracks!(tracks.flatten)
       end
     end
 

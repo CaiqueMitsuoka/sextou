@@ -1,0 +1,40 @@
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$large-width: 1200px;
+
+$red: #AA4139;
+$green: #448F30;
+
+@mixin landscape {
+    @media screen and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$large-width}) {
+    @content;
+  }
+}
+
+@import "body";
+@import "button";
+@import "footer";
+@import "list";
+@import "tph";
+@import "form";
+
+@import "friday_releases";
+@import "parties";

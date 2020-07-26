@@ -1,4 +1,4 @@
-<%= form_with(model: friday_release, local: true) do |form| %>
+<%= form_with(class: 'form', model: friday_release, local: true) do |form| %>
   <% if friday_release.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(friday_release.errors.count, "error") %> prohibited this friday_release from being saved:</h2>
@@ -11,7 +11,8 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit "Criar Playlist", class: 'friday-releases__submit' %>
+  <div class="form__actions">
+    <%= link_to 'Voltar', friday_releases_path, class: 'button' %>
+    <%= form.submit "Criar Playlist", class: 'button form__actions-button' %>
   </div>
 <% end %>

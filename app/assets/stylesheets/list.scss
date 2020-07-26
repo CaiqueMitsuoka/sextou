@@ -1,0 +1,29 @@
+.list {
+  margin: 0;
+  padding: 15px 0;
+
+  &__item {
+    display: flex;
+    flex-flow: row wrap;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    border-left: 4px solid lighten($green, 20%);
+    transition: border .2s ease;
+    padding-left: 1rem;
+
+    &:hover {
+      border-left: 10px solid lighten($green, 30%);
+
+      h2 {
+        color: lighten($green, 30%);
+      }
+    }
+  }
+
+  &__item-title {
+    width: 100%;
+    color: lighten($green, 20%);
+    text-align: left;
+    cursor: default;
+  }
+}

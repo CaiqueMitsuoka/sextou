@@ -2,15 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 0 5vh 0;
 
   &__description {
-    max-width: 800px;
-    padding: 30px;
     margin-bottom: 50px;
     font-family: "Marck Script", cursive;
     font-size: 1.5rem;
     font-kerning: none;
     line-height: 1.2;
+
+    @include tablet {
+      padding: 30px;
+    }
   }
 
   &__submit {

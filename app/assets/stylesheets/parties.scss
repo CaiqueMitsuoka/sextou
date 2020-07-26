@@ -1,3 +1,59 @@
-// Place all the styles related to the parties controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$search-button-size: 20%;
+
+.parties-tracks {
+  text-align: center;
+  box-sizing: border-box;
+  margin: 40px 0 100px 0;
+
+  &-search {
+    &__container {
+      width: 100%;
+      margin: 20px auto;
+      position: relative;
+
+      &::after {
+        right: -5px;
+        top: 0;
+        position: absolute;
+        content: '';
+        background-color: #5AEED1;
+        height: 100%;
+        width: $search-button-size;
+        box-shadow: -3px 0px 18px 0px rgba(90,238,209,1);
+      }
+
+      &::before {
+        right: 16px;
+        top: 50%;
+        position: absolute;
+        z-index: 1;
+        content: '\f002';
+        font-family: FontAwesome;
+        font-size: 32px;
+        color: #fff;
+        transform: translateY(-45%);
+      }
+    }
+
+    &__bar {
+      font-size: 24px;
+      width: 100%;
+      height: 60px;
+      border: 0;
+      box-shadow: 2px 3px 95px 3px rgba(237,237,237,.75);
+      color: #666;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    &__button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 3;
+      width: $search-button-size;
+      height: 100%;
+      opacity: 0;
+    }
+  }
+}

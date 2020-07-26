@@ -1,29 +1,32 @@
-<h1>Sextou é nóis</h1>
-<p class="playlist-select">
+<h1 class="title">Sextou é nóis</h1>
+
+<p class="subheading">
   <%= link_to 'parties', '/parties' %>
 </p>
 
-<div class="search-container">
-  <%= form_tag(party_tracks_path(@party_slug), method: "get", class: "search-bar") do %>
-  <%= text_field_tag(:track_name, nil , class: "search-bar") %>
-  <%= submit_tag(nil,class: 'button')%>
-  <button class="button"></button>
+<div class="parties-tracks">
+  <div class="parties-tracks-search__container">
+    <%= form_tag(party_tracks_path(@party_slug), method: "get", class: "search-bar") do %>
+    <%= text_field_tag(:track_name, nil , class: "parties-tracks-search__bar") %>
+    <%= submit_tag(nil,class: 'parties-tracks-search__button')%>
+    <button class="parties-tracks-search__button"></button>
+    <% end %>
+  </div>
+
+  <p class="label">
+    <%= @party.name %>
+  </p>
+
+  <% if @tracks.any? %>
+      <ul class="list">
+        <% @tracks.each do |track| %>
+        <li class="list__item">
+          <h2 class="list__item-title"><%= track.name %> (<%= track.artists[0].name %>)</h2>
+          <%= link_to 'add to playlist', party_tracks_path(@party_slug, track_id: track.id), method: :post, class: 'button button--listing' %>
+        </li>
+        <% end %>
+      </ul>
+  <% else %>
+      <h2>There are no songs with this name. :-(</h2>
   <% end %>
 </div>
-
-<p class="playlist-label">
-  <%= @party.name %>
-</p>
-<br/>
-<% if @tracks.any? %>
-    <ul>
-      <% @tracks.each do |track| %>
-      <li>
-        <h2><%= track.name %> (<%= track.artists[0].name %>)</h2>
-        <%= link_to 'add to playlist', party_tracks_path(@party_slug, track_id: track.id), method: :post %>
-      </li>
-      <% end %>
-    </ul>
-<% else %>
-    <h2>There are no songs with this name. :-(</h2>
-<% end %>

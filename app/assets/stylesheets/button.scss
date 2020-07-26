@@ -1,0 +1,24 @@
+.button {
+  display: block;
+  padding: 1rem;
+  color: #00C9FF;
+  border: 1px solid #00C9FF;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    background: rgba(#00C9FF, .25);
+  }
+
+  &--listing {
+    margin: 5px 1rem 5px 0;
+
+    @include tablet {
+      margin: 0;
+      margin-left: 2rem;
+    }
+  }
+}

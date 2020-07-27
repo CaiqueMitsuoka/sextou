@@ -4,6 +4,7 @@ $large-width: 1200px;
 
 $red: #AA4139;
 $green: #448F30;
+$blue: #00C9FF;
 
 @mixin landscape {
     @media screen and (orientation: landscape) {
@@ -38,3 +39,4 @@ $green: #448F30;
 
 @import "friday_releases";
 @import "parties";
+@import "sextou";

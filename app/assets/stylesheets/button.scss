@@ -1,8 +1,8 @@
 .button {
   display: block;
   padding: 1rem;
-  color: #00C9FF;
-  border: 1px solid #00C9FF;
+  color: $blue;
+  border: 1px solid $blue;
   cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
@@ -10,7 +10,7 @@
   text-transform: uppercase;
 
   &:hover {
-    background: rgba(#00C9FF, .25);
+    background: rgba($blue, .25);
   }
 
   &--listing {

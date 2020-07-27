@@ -1,7 +1,9 @@
-<div class="footer">
-  <% if current_user.friday_release %>
-    <%= link_to 'Parar de atualizar playlist de lançamentos', "/friday_releases/#{current_user.friday_release.id}",  method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
-  <% else %>
-    <%= link_to 'Descubra os lançamentos do artista que você segue', new_friday_release_path, class: 'button' %>
-  <% end %>
-</div>
+<% if logged_in? %>
+  <div class="footer">
+    <% if current_user.friday_release %>
+      <%= link_to 'Parar de atualizar playlist de lançamentos', "/friday_releases/#{current_user.friday_release.id}",  method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>
+    <% else %>
+      <%= link_to 'Descubra os lançamentos do artista que você segue', new_friday_release_path, class: 'button' %>
+    <% end %>
+  </div>
+<% end %>

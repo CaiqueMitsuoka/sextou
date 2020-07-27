@@ -4,8 +4,6 @@
 <% if @parties.any? %>
   <%= link_to 'Nova Party', new_party_path, class: 'button' %>
 
-  <br/>
-
   <ul class="list">
     <% @parties.each do |party| %>
       <li class="list__item">

@@ -3,7 +3,7 @@ class SpotifyController < ApplicationController
 
   attr_accessor :spotify_user
 
-  def home; end
+  def new; end
 
   def spotify
     user = create_or_update
@@ -11,10 +11,6 @@ class SpotifyController < ApplicationController
     session[:user_id] = user.id
 
     redirect_to parties_path
-  end
-
-  def index
-    @playlist = current_playlist if session.key?('current_playlist')
   end
 
   private

@@ -1,4 +1,5 @@
 class FridayReleasesController < ApplicationController
+  before_action :authenticate!
   before_action :set_friday_release, only: :destroy
 
   def new

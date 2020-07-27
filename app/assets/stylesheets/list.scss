@@ -1,5 +1,5 @@
 .list {
-  margin: 0;
+  margin: 20px 0;
   padding: 15px 0;
 
   &__item {
@@ -25,5 +25,11 @@
     color: lighten($green, 20%);
     text-align: left;
     cursor: default;
+    height: fit-content;
+    align-self: center;
+
+    @include tablet {
+      width: auto;
+    }
   }
 }

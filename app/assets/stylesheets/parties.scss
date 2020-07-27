@@ -1,4 +1,5 @@
-$search-button-size: 20%;
+$search-button-size-mobile: 20%;
+$search-button-size-tablet: 75px;
 
 .parties-tracks {
   text-align: center;
@@ -18,8 +19,12 @@ $search-button-size: 20%;
         content: '';
         background-color: #5AEED1;
         height: 100%;
-        width: $search-button-size;
+        width: $search-button-size-mobile;
         box-shadow: -3px 0px 18px 0px rgba(90,238,209,1);
+
+        @include tablet {
+          width: $search-button-size-tablet;
+        }
       }
 
       &::before {
@@ -51,9 +56,13 @@ $search-button-size: 20%;
       right: 0;
       top: 0;
       z-index: 3;
-      width: $search-button-size;
+      width: $search-button-size-mobile;
       height: 100%;
       opacity: 0;
+
+      @include tablet {
+        width: $search-button-size-tablet;
+      }
     }
   }
 }

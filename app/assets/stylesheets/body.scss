@@ -32,6 +32,10 @@ body {
   background: #111;
   padding: 33px;
 
+  @include large {
+    padding: 0 20%;
+  }
+
   &:before {
     position: absolute;
     left: 0;

@@ -1,0 +1,24 @@
+<h1 class="title">What's up</h1>
+
+<ul id="features" class="features">
+  <li id="parties" class="features__item">
+    <%= link_to parties_path do %>
+      <h2 class="features__title">Parties</h2>
+      <p class="features__description">Crie playlists colaborativas com quem não tem Spotify!</p>
+    <% end %>
+  </li>
+
+  <li id="friday-releases" class="features__item">
+    <%= link_to new_friday_release_path do %>
+      <h2 class="features__title">Sextou lançamentos</h2>
+      <p class="features__description">Receba o lancementos dos seus artistas preferidos toda sexta!</p>
+    <% end %>
+  </li>
+
+  <li id="snapshots" class="features__item">
+    <%= link_to snapshot_index_path do %>
+      <h2 class="features__title">Snapshots</h2>
+      <p class="features__description">Copie aquela playlist PERFEITA do Spotify antes que eles mudem tudo!</p>
+    <% end %>
+  </li>
+</ul>

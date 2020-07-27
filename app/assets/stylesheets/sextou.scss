@@ -1,0 +1,78 @@
+.features {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0;
+  padding: 0;
+  list-style-type: none;
+  color: $blue;
+  font-size: 1.4rem;
+  text-align: center;
+
+  @include large {
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-height: 60vh;
+  }
+
+  &:visited {
+    color: none;
+  }
+
+  &__item {
+    margin: 30px 0;
+    padding: 20px 13px;
+    border: 3px solid $blue;
+    border-radius: 7px;
+    outline: none;
+    border-color: $blue;
+    box-shadow: 0 0 10px $blue;
+    font-family: 'Marck Script', cursive;
+    animation: flicker 9s infinite alternate;
+    display: block;
+
+    @include large {
+      margin: 30px;
+      width: 30%;
+    }
+  }
+
+  &__title {
+    position: relative;
+    top: -25px;
+
+    @include large {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__description {
+    @include large {
+      margin: 20px;
+      position: relative;
+      bottom: -7vh;
+      font-size: 1.6rem;
+    }
+  }
+
+  @keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      box-shadow:
+        0 0 .3rem $blue,
+        inset 0 0 .3rem $blue,
+        0 0 1rem $blue,
+        inset 0 0 1rem $blue,
+        0 0 2rem $blue,
+        inset 0 0 2rem $blue;
+      text-shadow:
+        -0.2rem -0.2rem 1rem $blue,
+        0.2rem 0.2rem 1rem $blue,
+        0 0 1rem $blue,
+        0 0 8rem $blue;
+    }
+
+    20%, 24%, 55% {
+      text-shadow: none;
+      box-shadow: none;
+    }
+  }
+}

@@ -1,7 +1,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  get '/', to: 'spotify#home'
+  get '/', to: 'sextou#home'
+
+  get '/login', to: 'spotify#new'
   get '/auth/spotify/callback', to: 'spotify#spotify'
 
   resources :parties, only: [:index, :new, :create]

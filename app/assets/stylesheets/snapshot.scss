@@ -1,3 +1,25 @@
-// Place all the styles related to the snapshot controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.snapshots {
+  &__form-list {
+    flex-direction: row;
+    width: 100%;
+
+    @include tablet {
+      align-items: center;
+    }
+
+    &-item {
+      width: 100%;
+      margin: 0 0 15px 0;
+
+      @include tablet {
+        max-width: 50vw;
+        margin: 15px 0;
+        height: fit-content;
+      }
+
+      @include desktop {
+        max-width: 35vw;
+      }
+    }
+  }
+}

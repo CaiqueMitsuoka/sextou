@@ -1,4 +1,5 @@
 <h1 class="title">Snapshot</h1>
+<p id="notice"><%= notice %></p>
 
 <p class="subheading">
   <%= link_to 'home', '/' %>
@@ -6,6 +7,21 @@
 
 <% if @playlists.any? %>
   <ul class="list">
+    <% if @next_page == 2 %>
+      <%= form_tag(snapshot_index_path, class: "snapshots__form-list form list__item", local: true) do %>
+        <div class="snapshots__form-list-item form__field">
+          <%= label_tag :link %>
+          <span class="form__text-input-container">
+            <%= text_field_tag :link %>
+          </span>
+        </div>
+
+        <div class="form__actions">
+          <%= submit_tag 'snapshot!', class: 'button button--listing form__actions-button' %>
+        </div>
+      <% end %>
+    <% end %>
+
     <% @playlists.each do |playlist| %>
       <li class="list__item">
         <h2 class="list__item-title"><%= playlist.name %></h2>

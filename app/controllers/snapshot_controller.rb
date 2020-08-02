@@ -10,15 +10,19 @@ class SnapshotController < ApplicationController
   end
 
   def create
-    SnapshotPlaylistJob.perform_later(current_user.id, snapshot_params)
+    if snapshot_params.valid?
+      SnapshotPlaylistJob.perform_later(current_user.id, snapshot_params.playlist_id)
 
-    redirect_to parties_path, notice: 'Sua Playlist será copiada nos próximos minutos 🤙'
+      redirect_to "/", notice: 'Sua Playlist será copiada nos próximos minutos 🤙'
+    else
+      redirect_to snapshot_index_path, notice: 'Link inválido 🙅‍♀️'
+    end
   end
 
   private
 
   def snapshot_params
-    params.require("playlist_id")
+    @snapshot_params ||= SnapshotParams.new(params)
   end
 
   def offset

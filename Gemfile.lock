@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/caiquemitsuoka/rspotify.git
+  revision: 01642d5864bc2aef2b48fd816549df38c102cafa
+  branch: fix/playlist_replace_tracks_request_headers
+  specs:
+    rspotify (2.9.1)
+      addressable (~> 2.5.2)
+      omniauth-oauth2 (~> 1.5.0)
+      rest-client (~> 2.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -197,10 +207,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rspotify (2.8.0)
-      addressable (~> 2.5.2)
-      omniauth-oauth2 (~> 1.5.0)
-      rest-client (~> 2.0.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -272,7 +278,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.12)
   rails (~> 6.0.3.2)
-  rspotify (~> 2.8.0)
+  rspotify!
   sass-rails (~> 5.0)
   sidekiq
   spring

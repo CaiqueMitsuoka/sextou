@@ -38,7 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'friendly_id', '~> 5.2.4'
 gem 'omniauth-oauth2', '~> 1.5.0'
-gem 'rspotify', '~> 2.8.0'
+gem 'rspotify', git: 'https://github.com/caiquemitsuoka/rspotify.git', branch: 'fix/playlist_replace_tracks_request_headers'
 gem 'bootsnap', require: false
 gem 'symmetric-encryption'
 gem 'sidekiq'

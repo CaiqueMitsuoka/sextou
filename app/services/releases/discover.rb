@@ -1,6 +1,7 @@
 module Releases
   class Discover
     attr_reader :user
+    ARTIST_OFFSET_LIMIT = 50
 
     def initialize(user)
       @user = user
@@ -64,12 +65,16 @@ module Releases
     end
 
     def fetch_artists
+      return [] if total_artists == 0
+
       artists = []
       last_artist_id = nil
 
-      (1..100).detect do |page_number|
+      pages = (total_artists / ARTIST_OFFSET_LIMIT) + 1
+
+      (0...pages).detect do |page_number|
         page_artists = spotify_request do
-          user.spotify_account.following(type: 'artist', limit: 50, after: last_artist_id)
+          user.spotify_account.following(type: 'artist', limit: ARTIST_OFFSET_LIMIT, after: last_artist_id)
         end
 
         artists.concat(page_artists)
@@ -92,6 +97,19 @@ module Releases
 
         spotify_request(&block)
       end
+    end
+
+    def total_artists
+      return @total_artists if @total_artists.present?
+
+      RSpotify.raw_response = true
+      body = user.spotify_account.following(type: 'artist', limit: 1).body
+
+      @total_artists = JSON.parse(body)["artists"]["total"]
+
+      RSpotify.raw_response = false
+
+      @total_artists
     end
   end
 end

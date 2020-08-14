@@ -5,6 +5,8 @@ class FridayRelease < ApplicationRecord
 
   before_validation :create_playlist
 
+  after_create :async_populate
+
   def create_playlist
     return unless user.present? && !playlist_id.present?
 
@@ -15,5 +17,11 @@ class FridayRelease < ApplicationRecord
 
   def playlist
     @playlist ||= RSpotify::Playlist.find_by_id(playlist_id)
+  end
+
+  private
+
+  def async_populate
+    UpdateFridayPlaylistJob.perform_later(user.id)
   end
 end

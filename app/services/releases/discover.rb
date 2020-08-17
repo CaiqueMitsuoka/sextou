@@ -7,6 +7,7 @@ module Releases
       @user = user
     end
 
+    # Ok agora isso saiu do controle, precisamos de testes aqui
     def execute
       return unless user.friday_release
       user.spotify_account
@@ -23,8 +24,15 @@ module Releases
       end
 
       spotify_request do
-        user.friday_release.playlist.replace_tracks!(tracks.flatten)
+        user.friday_release.playlist.replace_tracks!([])
       end
+
+      tracks.flatten.each_slice(100) do |tracks_batch|
+        spotify_request do
+          user.friday_release.playlist.add_tracks!(tracks_batch)
+        end
+      end
+    end
     end
 
     private

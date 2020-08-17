@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     post '/:slug/tracks/', to: 'tracks#create'
   end
 
-  mount Sidekiq::Web => '/sidekiq', constraints: UserIsAdmin
+  namespace :admin, constraints: UserIsAdmin do
+    mount Sidekiq::Web => '/sidekiq'
+
+    resources :releases_playlists, to: 'admin/releases_playlists', only: :index
+  end
 
   resources :friday_releases, only: [:new, :create, :destroy]
   resources :snapshot, only: [:index, :create]

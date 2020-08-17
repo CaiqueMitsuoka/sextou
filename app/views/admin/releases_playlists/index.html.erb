@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<h1 class="title">Friday Releasese Playlists</h1>
+
+<ul class="list">
+  <% @releases.each do |release| %>
+    <li class="list__item">
+      <h2 class="list__item-title"><%= "#{release.user.id}: #{release.user.spotify_account.email}" %></h2>
+
+      <a href="<%= "https://open.spotify.com/playlist/#{release.playlist_id}" %>" class="button button--listing">Playlist</a>
+    </li>
+  <% end %>
+</ul>

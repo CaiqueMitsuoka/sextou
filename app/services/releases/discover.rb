@@ -33,7 +33,6 @@ module Releases
         end
       end
     end
-    end
 
     private
 

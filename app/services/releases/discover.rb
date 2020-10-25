@@ -29,7 +29,7 @@ module Releases
         user.friday_release.playlist.replace_tracks!([])
       end
 
-      tracks.flatten.each_slice(100) do |tracks_batch|
+      tracks.sort_by!(&:count).flatten.each_slice(100) do |tracks_batch|
         spotify_request do
           user.friday_release.playlist.add_tracks!(tracks_batch)
         end

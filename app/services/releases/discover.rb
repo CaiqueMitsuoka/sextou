@@ -3,6 +3,8 @@ module Releases
     attr_reader :user
     ARTIST_OFFSET_LIMIT = 50
 
+    include SpotifyRequestHandler
+
     def initialize(user)
       @user = user
     end
@@ -91,19 +93,6 @@ module Releases
       end
 
       artists
-    end
-
-    def spotify_request(&block)
-      begin
-        yield
-      rescue RestClient::TooManyRequests => e
-        wait_time = e.http_headers[:retry_after]&.to_i
-        wait_time ||= 10
-
-        sleep wait_time.seconds
-
-        spotify_request(&block)
-      end
     end
 
     def total_artists

@@ -168,7 +168,8 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (3.1.1)
-    puma (3.12.6)
+    puma (4.3.11)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -276,7 +277,7 @@ DEPENDENCIES
   omniauth-oauth2 (~> 1.5.0)
   pg
   pry-rails
-  puma (~> 3.12)
+  puma (~> 4.3)
   rails (~> 6.0.3.2)
   rspotify!
   sass-rails (~> 5.0)

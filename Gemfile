@@ -42,6 +42,7 @@ gem 'rspotify', git: 'https://github.com/caiquemitsuoka/rspotify.git', branch: '
 gem 'bootsnap', require: false
 gem 'symmetric-encryption'
 gem 'sidekiq'
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

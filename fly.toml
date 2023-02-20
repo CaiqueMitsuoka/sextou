@@ -27,7 +27,7 @@ worker = "bundle exec sidekiq"
 [[services]]
   http_checks = []
   internal_port = 8080
-  processes = ["app"]
+  processes = ["web"]
   protocol = "tcp"
   script_checks = []
   [services.concurrency]

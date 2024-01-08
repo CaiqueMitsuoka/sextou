@@ -1,11 +1,11 @@
-FROM ruby:2.6.5
+FROM ruby:2.7.8
 
 RUN apt-get update -qq && \
   apt-get install -y nodejs postgresql-client file vim curl gzip && \
   rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-RUN gem update --system --no-document && \
-  gem install -N bundler -v 2.1.4
+# RUN gem update --system --no-document && \
+#   gem install -N bundler -v 2.1.4
 
 WORKDIR /sextou-app
 

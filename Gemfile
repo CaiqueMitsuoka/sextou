@@ -8,7 +8,8 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1'
+gem 'rails', '~> 7.2.0'
+gem 'mutex_m'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -37,8 +38,8 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 gem 'friendly_id', '~> 5.2.4'
-gem 'omniauth-oauth2', '~> 1.5.0'
-gem 'rspotify', git: 'https://github.com/caiquemitsuoka/rspotify.git', branch: 'fix/playlist_replace_tracks_request_headers'
+gem 'omniauth-oauth2'
+gem 'rspotify'
 gem 'bootsnap', require: false
 gem 'symmetric-encryption'
 gem 'sidekiq'
@@ -54,7 +55,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '~> 3.5'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

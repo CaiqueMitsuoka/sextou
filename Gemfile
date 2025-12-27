@@ -12,7 +12,7 @@ gem 'rails', '~> 6.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -42,7 +42,6 @@ gem 'rspotify', git: 'https://github.com/caiquemitsuoka/rspotify.git', branch: '
 gem 'bootsnap', require: false
 gem 'symmetric-encryption'
 gem 'sidekiq'
-gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

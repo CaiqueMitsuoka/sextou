@@ -2,4 +2,4 @@
   welcome home
 </h1>
 
-<%= link_to 'Sign in with Spotify', '/auth/spotify', class: 'button' %>
+<%= button_to 'Sign in with Spotify', '/auth/spotify', method: :post, class: 'button', data: { turbo: false } %>

@@ -216,6 +216,9 @@ GEM
     omniauth-oauth2 (1.9.0)
       oauth2 (>= 2.0.2, < 3)
       omniauth (~> 2.0)
+    omniauth-rails_csrf_protection (2.0.1)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
     pg (1.5.4)
     pp (0.6.3)
       prettyprint
@@ -377,6 +380,7 @@ DEPENDENCIES
   mimemagic!
   mutex_m
   omniauth-oauth2
+  omniauth-rails_csrf_protection
   pg
   pry-rails
   puma (>= 5.6.9)

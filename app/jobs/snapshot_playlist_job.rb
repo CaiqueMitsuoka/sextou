@@ -1,6 +1,6 @@
 class SnapshotPlaylistJob < ApplicationJob
   queue_as :spotify
-  sidekiq_options retry: 1
+  retry_on StandardError, wait: 5.seconds, attempts: 2
 
   def perform(user_id, playlist_id)
     user = User.find(user_id)

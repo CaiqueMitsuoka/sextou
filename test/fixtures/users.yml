@@ -3,11 +3,11 @@
 one:
   name: MyString
   user_raw: MyString
-  online: false
+
   session_id: MyString
 
 two:
   name: MyString
   user_raw: MyString
-  online: false
+
   session_id: MyString

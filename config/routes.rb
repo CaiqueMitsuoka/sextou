@@ -1,5 +1,3 @@
-require 'sidekiq/web'
-
 Rails.application.routes.draw do
   get '/', to: 'sextou#home'
 
@@ -13,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin, constraints: UserIsAdmin do
-    mount Sidekiq::Web => '/sidekiq'
+    mount MissionControl::Jobs::Engine, at: "/jobs"
 
     resources :releases_playlists, to: 'admin/releases_playlists', only: :index
   end

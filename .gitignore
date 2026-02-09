@@ -15,5 +15,10 @@ tmp/*
 # Ignore Byebug command history file.
 .byebug_history
 
-# ignore .env
-.env
+# Override global gitignore: version .env and .env.test
+!.env
+!.env.test
+
+# Ignore dev credentials and local overrides
+.env.development
+.env*.local

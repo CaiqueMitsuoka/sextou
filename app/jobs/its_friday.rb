@@ -5,7 +5,5 @@ class ItsFriday < ApplicationJob
     User.all.each do |user|
       UpdateFridayPlaylistJob.perform_later(user.id)
     end
-
-    self.class.set(wait: 1.week).perform_later
   end
 end

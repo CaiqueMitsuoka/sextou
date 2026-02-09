@@ -7,7 +7,7 @@
     <% end %>
 
     <% if current_user.admin %>
-        <%= link_to 'Sidekiq dashboard', admin_sidekiq_web_path, class: 'button' %>
+        <%= link_to 'Jobs dashboard', admin_jobs_path, class: 'button' %>
         <%= link_to 'Playlists de lançamentos', admin_releases_playlists_path, class: 'button' %>
     <% end %>
   </div>

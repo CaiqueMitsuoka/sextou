@@ -1,0 +1,5 @@
+production:
+  its_friday:
+    class: ItsFriday
+    queue: spotify
+    schedule: every Thursday at 5am America/Sao_Paulo
